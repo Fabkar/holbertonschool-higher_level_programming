@@ -11,10 +11,10 @@ int check_cycle(listint_t *list)
 	tort = c = list;
 	while (tort && c && c->next)
 	{
-                c = c->next->next;
-                tort = tort->next;
-                if (tort == c)
-                return (1);
+		c = c->next->next;
+		tort = tort->next;
+		if (tort == c)
+		return (1);
 	}
 	return (0);
 }
