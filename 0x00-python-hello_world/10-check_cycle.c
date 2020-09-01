@@ -8,6 +8,8 @@ int check_cycle(listint_t *list)
 {
 	listint_t *current_list, *n_list;
 
+        if (list == NULL)
+                return (0);
 	current_list = list;
 	n_list = current_list->next;
 	while (current_list != NULL)
