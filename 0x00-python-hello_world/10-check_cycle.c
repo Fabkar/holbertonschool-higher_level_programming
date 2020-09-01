@@ -6,23 +6,15 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *current_list, *n_list;
+	listint_t *tort, *c;
 
-        if (list == NULL)
-                return (0);
-	current_list = list;
-	n_list = current_list->next;
-	while (current_list != NULL)
+	tort = c = list;
+	while (tort && c && c->next)
 	{
-		while (n_list != NULL)
-		{
-			if (current_list == n_list->next)
-				return (1);
-			n_list = n_list->next;
-		}
-		if (n_list == NULL)
-			return (0);
-		current_list = current_list->next;
+                c = c->next->next;
+                tort = tort->next;
+                if (tort == c)
+                return (1);
 	}
 	return (0);
 }
