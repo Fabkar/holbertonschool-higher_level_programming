@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
         return 0
     for i in range(len(roman_string)):
         if i > 0 and Dict[roman_string[i]] > Dict[roman_string[i - 1]]:
-            result += Dict[roman_string[i]] - Dict[roman_string[i - 1]] * 2
+            result += Dict[roman_string[i]] - (Dict[roman_string[i - 1]] * 2)
         else:
             result += Dict[roman_string[i]]
     return result
