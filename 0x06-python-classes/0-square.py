@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+"""My first square class in python in this case is empty"""
+
+
 class Square:
-    "My first square class in python in this case is empty"
-    def __init__(self, Square={}):
-        self = {}
+    """Show the square class"""
+    pass
