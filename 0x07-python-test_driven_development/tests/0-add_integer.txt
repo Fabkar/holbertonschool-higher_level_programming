@@ -1,0 +1,99 @@
+Integers addition module
+===========================
+Function
+========.
+function that adds 2 integers.
+
+Operations
+==========
+a and b must be integers or floats, otherwise raise a TypeError exception
+with the message a must be an integer or b must be an integer:
+
+
+Import module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Uses:
+
+Checking docstring for module:
+        >>> __import__('0-add_integer').__doc__ != None
+        True
+
+Checking docstring for module:
+        >>> __import__('0-add_integer').__doc__ != None
+        True
+
+Call function with more than 2 arguments:
+    >>> add_integer(8, 3, 9)
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Return an error when is passed a None:
+    >>> add_integer(None, 8)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Return an error when is passed a None:
+    >>> add_integer(3, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Call empty function:
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Return an error when cannot convert float NaN to integer:
+    >>> add_integer(float("NaN"), 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+Call function with only 1 argument:
+    >>> add_integer(1)
+    99
+
+Return the sum of two integers:
+    >>> add_integer(7, 5)
+    12
+
+Return an integer from the sum of a = float, b = integer:
+    >>> add_integer(8.3, 2)
+    10
+
+Add an integer with a string:
+    >>> add_integer("F", 8)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Add a string with an integer:
+    >>> add_integer(9, "G")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Add with inf:
+    >>> add_integer(float('inf'), 1)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+Add two negative floats:
+    >>> add_integer(-5.9, -1.1)
+    -6
+
+Add bool with int:
+    >>> add_integer(True, 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+call function with only 1 argument:
+    >>> add_integer(1)
+    99
+
