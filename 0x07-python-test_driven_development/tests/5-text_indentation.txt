@@ -1,0 +1,43 @@
+The ``5-text_indentation`` module
+===============================
+
+Using ``text_indentation``
+===============================
+
+Checking docstring for module:
+        >>> __import__('5-text_indentation').__doc__ != None
+        True
+
+Using ``text_indentation``
+Import ``text_indentation`` from the ``5-text_indentation`` module:
+        >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Check docstring for function:
+        >>> len(text_indentation.__doc__) > 0
+        True
+
+Uses:
+
+Checking for passing None:
+     >>> text_indentation(None)
+     Traceback (most recent call last):
+     ...
+     TypeError: text must be a string
+
+Checking for no args:
+     >>> text_indentation()
+     Traceback (most recent call last):
+     ...
+     TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Checking function with many arguments:
+    >>> text_indentation("Hi", "Horacio")
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Checking for passing an integer type:
+    >>> text_indentation(8)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
