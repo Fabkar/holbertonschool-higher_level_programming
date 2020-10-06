@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """
-My class list that inherits from list
+class list that inherits from list
 """
 
 
 class MyList(list):
-    """Subclass of list"""
+    """
+    Subclass of list
+    """
     def __init__(self):
         """
         Initializace all instance of method
