@@ -1,10 +1,14 @@
 #!/usr/bin/python3
-"""Module that define a class Rectangle
+"""
+Module that define a class Rectangle
 """
 Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
+    """
+    Define a Square
+    """
     def __init__(self, size):
         """
         Init with super function to use all attributes from parent class
@@ -21,6 +25,6 @@ class Square(Rectangle):
 
     def __str__(self):
         """
-        Rectangle description
+        string representation of the object
         """
         return "[Square] {}/{}".format(self.__size, self.__size)
