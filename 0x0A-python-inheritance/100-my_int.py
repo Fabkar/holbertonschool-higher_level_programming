@@ -5,15 +5,23 @@ Module defines a class Myint
 
 
 class MyInt(int):
-    """Define class MyInt
+    """
+    Define class MyInt
     """
     def __int__(self, value=0):
-        """Init MyInt
+        """
+        Init MyInt
         """
         self.__value = value
 
     def __eq__(self, value):
-        return not (self.__value == value)
+        """
+        compare using == operators inverted
+        """
+        return not self.__value == value
 
     def __ne__(self, value):
-        return not (self.__value != value)
+        """
+        compare using != operators inverted
+        """
+        return not self.__value != value
