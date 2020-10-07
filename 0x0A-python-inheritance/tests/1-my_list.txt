@@ -12,7 +12,7 @@ Checking docstring for MyList:
         True
 
 Import ``MyList`` from the ``1-my_list`` module:
-        >>> MyList = __import__(`1-my_list`).MyList
+        >>> MyList = __import__('1-my_list').MyList
 
 Generate a new Instance:
         >>> my_list = MyList()
@@ -37,13 +37,3 @@ Checking counter:
 When my_list is a subclass of list:
         >>> issubclass(MyList, list)
         True
-
-Checking insert:
-        >>> my_list.insert(0, 5)
-        >>> print(my_list)
-        [5, 4]
-
-Check copy:
-        >>> my_list2 = my_list.copy()
-        >>> print(my_list2)
-        [5, 4, 3, 7, 8, 5]
