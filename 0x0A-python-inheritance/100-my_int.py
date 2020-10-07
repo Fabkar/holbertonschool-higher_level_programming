@@ -6,22 +6,17 @@ Module defines a class Myint
 
 class MyInt(int):
     """
-    Define class MyInt
+    class MyInt inherits from int
     """
-    def __int__(self, value=0):
-        """
-        Init MyInt
-        """
-        self.__value = value
 
     def __eq__(self, value):
         """
-        compare using == operators inverted
+        it's true if self and other are Not equal
         """
-        return not self.__value == value
+        return int(self) != value
 
     def __ne__(self, value):
         """
-        compare using != operators inverted
+        it's true if self and other are equal
         """
-        return not self.__value != value
+        return int(self) == value
