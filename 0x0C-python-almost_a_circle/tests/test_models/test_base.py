@@ -22,6 +22,12 @@ class TestBase(unittest. TestCase):
         for name, func in functions:
             self.assertTrue(len(func.__doc__.strip()) > 0)
 
+    def test_pep8(self):
+        """check Test to pep8"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(["models/base.py"])
+        self.assertEqual(result.total_errors, 0)
+
     def test_baseclass(self):
         """
         1. Base Class
