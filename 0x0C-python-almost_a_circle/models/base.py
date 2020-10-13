@@ -73,27 +73,24 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """that serializes and deserializes in CSV"""
+        """ save file format csv """
         filename = cls.__name__ + ".csv"
-        with open(filename, "w") as csv_f:
-            if cls.__name__ is "Rectangle":
-                keys = ['id', 'width', 'height', 'x', 'y']
-            elif cls.__name__ is "Square":
-                keys = ['id', 'size', 'x', 'y']
-            writer_ = csv.DictWriter(csv_f, fieldnames=keys)
-            for obj in list_objs:
-                writer_.writerow(obj.to_dictionary())
+        lista = [i.to_dictionary() for i in list_objs]
+        with open(filename, 'w') as f:
+            dictionaries = csv.DictWriter(f, lista[0].keys())
+            dictionaries.writeheader()
+            dictionaries.writerows(lista)
 
     @classmethod
     def load_from_file_csv(cls):
         """that serializes and deserializes in CSV"""
         filename = cls.__name__ + ".csv"
+        list_ = {}
+        list_2 = []
         with open(filename, "r") as csv_f:
             csv_reader = csv.DictReader(csv_f)
-            list_ = {}
-            list_2 = []
             for row in csv_reader:
                 for l_key, l_value in dict(row).items():
-                    list_[l_key] = l_value
+                    list_[l_key] = int(l_value)
                 list_2.append(cls.create(**list_))
             return list_2
