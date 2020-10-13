@@ -2,8 +2,6 @@
 """
 Unitest for model/base.py
 """
-
-import pep8
 import unittest
 import inspect
 from models.base import Base
@@ -25,16 +23,10 @@ class TestSquare(unittest. TestCase):
         for name, func in functions:
             self.assertTrue(len(func.__doc__.strip()) > 0)
 
-    def test_pep8(self):
-        """check Test to pep8"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(["models/rectangle.py"])
-        self.assertEqual(result.total_errors, 0)
-
     def test_square_correct(self):
         """Checking each attribute of square"""
         r = Square(2)
         self.assertEqual(r.size, 2)
         self.assertEqual(r.x, 0)
         self.assertEqual(r.y, 0)
-        self.assertEqual(r.id, 3)
+        self.assertEqual(r.id, 1)

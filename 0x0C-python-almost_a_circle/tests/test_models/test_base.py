@@ -3,7 +3,6 @@
 Unitest for model/base.py
 """
 import unittest
-import pep8
 import inspect
 from models.base import Base, __doc__ as mrdoc
 
@@ -22,12 +21,6 @@ class TestBase(unittest. TestCase):
         functions = inspect.getmembers(Base, predicate=inspect.isfunction)
         for name, func in functions:
             self.assertTrue(len(func.__doc__.strip()) > 0)
-
-    def test_pep8(self):
-        """check Test to pep8"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(["models/base.py"])
-        self.assertEqual(result.total_errors, 0)
 
     def test_baseclass(self):
         """

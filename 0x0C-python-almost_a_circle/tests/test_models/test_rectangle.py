@@ -2,8 +2,6 @@
 """
 Unitest for model/base.py
 """
-
-import pep8
 import unittest
 import inspect
 from models.base import Base
@@ -33,12 +31,6 @@ class TestRectangle(unittest. TestCase):
         self.assertEqual(r.x, 0)
         self.assertEqual(r.y, 0)
         self.assertEqual(r.id, 3)
-
-    def test_pep8(self):
-        """check Test to pep8"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(["models/rectangle.py"])
-        self.assertEqual(result.total_errors, 0)
 
     def test_validator(self):
         """checks the calling of Rectangle"""
