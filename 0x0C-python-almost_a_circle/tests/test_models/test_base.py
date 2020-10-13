@@ -3,6 +3,7 @@
 Unitest for model/base.py
 """
 import unittest
+import pep8
 import inspect
 from models.base import Base, __doc__ as mrdoc
 
