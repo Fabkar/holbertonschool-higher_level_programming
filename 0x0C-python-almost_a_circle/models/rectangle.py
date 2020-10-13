@@ -110,4 +110,3 @@ class Rectangle(Base):
         keys = ['id', 'width', 'height', 'x', 'y']
         vals = [self.id, self.width, self.height, self.x, self.y]
         return dict(zip(keys, vals))
-
