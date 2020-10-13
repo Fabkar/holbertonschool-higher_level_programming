@@ -67,7 +67,7 @@ class Base:
                 tmp_list = Base.from_json_string(f.read())
             for item, j in enumerate(tmp_list):
                 tmp_list[item] = cls.create(**tmp_list[item])
-        except:
+        except Exception:
             pass
         return tmp_list
 
@@ -80,7 +80,7 @@ class Base:
                 keys = ['id', 'width', 'height', 'x', 'y']
             elif cls.__name__ is "Square":
                 keys = ['id', 'size', 'x', 'y']
-            writer_ = csv.DictWriter(csv_f, fieldnames = keys)
+            writer_ = csv.DictWriter(csv_f, fieldnames=keys)
             for obj in list_objs:
                 writer_.writerow(obj.to_dictionary())
 
