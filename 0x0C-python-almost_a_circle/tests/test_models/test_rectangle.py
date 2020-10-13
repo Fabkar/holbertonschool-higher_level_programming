@@ -10,7 +10,6 @@ from models.base import Base
 from models.rectangle import Rectangle, __doc__ as mrdoc
 
 
-
 class TestRectangle(unittest. TestCase):
     """
     Test to Rectangle Class
