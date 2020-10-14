@@ -1,78 +1,47 @@
 #!/usr/bin/python3
 """
-Unitest for model/base.py
+Unittest classes
 """
+
 import unittest
-import inspect
 from models.base import Base
-from models.rectangle import Rectangle, __doc__ as mrdoc
+from models.rectangle import Rectangle, __doc__
+from models.square import Square
 
 
-class TestRectangle(unittest. TestCase):
+class Test_Rectangle(unittest.TestCase):
     """
-    Test to Rectangle Class
+    docstring
     """
+    def test_without_arg(self):
+        """ test without arg """
+        with self.assertRaises(TypeError):
+            Rectangle()
+
+    def test_rect(self):
+        """ test rectangle """
+        r = Rectangle(10, 15)
+        self.assertEqual(r.width, 10)
+        self.assertEqual(r.height, 15)
+
+    def test_one_arg(self):
+        """ test one arg """
+        with self.assertRaises(TypeError):
+            Rectangle(1)
+
+    def test_rectangle_base(self):
+        """ test rectangle base """
+        self.assertIsInstance(Rectangle(10, 20), Base)
+
+    def test_none_id(self):
+        """ test none id """
+        self.assertEqual(Base(None).id, Base(None).id - 1)
+
     def test_docstring(self):
-        """ check each base class with docstrings"""
-        self.assertTrue(len(mrdoc.strip()) > 0)
+        """ test doctring """
         self.assertTrue(len(Base.__doc__.strip()) > 0)
-        functions = inspect.getmembers(Base, predicate=inspect.ismethod)
-        for name, func in functions:
-            self.assertTrue(len(func.__doc__.strip()) > 0)
-        functions = inspect.getmembers(Base, predicate=inspect.isfunction)
-        for name, func in functions:
-            self.assertTrue(len(func.__doc__.strip()) > 0)
-
-    def test_rectangle_correct(self):
-        """Checking each attribute of Rectangle"""
-        r = Rectangle(2, 3)
-        self.assertEqual(r.width, 2)
-        self.assertEqual(r.height, 3)
-        self.assertEqual(r.x, 0)
-        self.assertEqual(r.y, 0)
-        self.assertEqual(r.id, 3)
-
-    def test_validator(self):
-        """checks the calling of Rectangle"""
-        with self.assertRaises(TypeError):
-            r = Rectangle(8)
-        with self.assertRaises(TypeError):
-            r = Rectangle()
-        with self.assertRaises(TypeError):
-            r = Rectangle(5, 6, 2, 4, 9, 0)
-
-    def test_negative_attributes(self):
-        """checking Negative attribute"""
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            r = Rectangle(-2, 1)
-        with self.assertRaises(ValueError):
-            r = Rectangle(2, -1)
-        with self.assertRaises(ValueError):
-            r = Rectangle(0, 0, 0)
-
-    def test_attributes_float(self):
-        """checking type float in attributes"""
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(8.5, 2)
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            r = Rectangle(8, 5.0)
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            r = Rectangle(1, 2, 2.0)
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(5, 6, 4, 9.1)
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            r = Rectangle(9, float('inf'))
-
-    def test_attributesstring(self):
-        """checking type str in attributes"""
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle("Base", 1)
-
-    def test_area(self):
-        """cheacking the area of rectangle"""
-        r = Rectangle(2, 4)
-        self.assertEqual(r.area(), 8)
-        r2 = Rectangle(789965564, 534353453332)
-        self.assertEqual(r2.area(), 422120827136761059248)
-        with self.assertRaises(TypeError):
-            r2.area(5)
+        self.assertTrue(len(Base.to_json_string.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.save_to_file.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.from_json_string.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.create.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.load_from_file.__doc__.strip()) > 0)

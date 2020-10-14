@@ -1,32 +1,46 @@
 #!/usr/bin/python3
-"""
-Unitest for model/base.py
-"""
+"""unittest square"""
+
 import unittest
-import inspect
 from models.base import Base
-from models.square import Square, __doc__ as mrdoc
+from models.rectangle import Rectangle
+from models.square import Square
+import inspect
+import pep8
 
 
-class TestSquare(unittest. TestCase):
-    """
-    Test to Square Class
-    """
-    def test_docstring(self):
-        """ check each base class with docstrings"""
-        self.assertTrue(len(mrdoc.strip()) > 0)
+class test_square(unittest.TestCase):
+    """unittest square"""
+    def test_doctstring(self):
+        """Test documentation"""
         self.assertTrue(len(Base.__doc__.strip()) > 0)
-        functions = inspect.getmembers(Base, predicate=inspect.ismethod)
-        for name, func in functions:
-            self.assertTrue(len(func.__doc__.strip()) > 0)
-        functions = inspect.getmembers(Base, predicate=inspect.isfunction)
-        for name, func in functions:
-            self.assertTrue(len(func.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.to_json_string.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.save_to_file.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.from_json_string.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.create.__doc__.strip()) > 0)
+        self.assertTrue(len(Base.load_from_file.__doc__.strip()) > 0)
 
-    def test_square_correct(self):
-        """Checking each attribute of square"""
-        r = Square(2)
-        self.assertEqual(r.size, 2)
-        self.assertEqual(r.x, 0)
-        self.assertEqual(r.y, 0)
-        self.assertEqual(r.id, 1)
+    def test_pep8(self):
+        """Test PEP8"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(["models/rectangle.py"])
+        self.assertEqual(result.total_errors, 0)
+
+    def test_square_success(self):
+        """check success class work"""
+        S = Square(1)
+        self.assertEqual(S.size, 1)
+        self.assertEqual(S.x, 0)
+        self.assertEqual(S.y, 0)
+
+    def test_instances(self):
+        """check instances"""
+        with self.assertRaises(TypeError):
+            S = Square()
+        with self.assertRaises(TypeError):
+            S = Square(1, 2, 3, 4, 5, 6)
+        with self.assertRaises(ValueError):
+            S = Square(0)
+
+if __name__ == "__main__":
+    unittest.main()
