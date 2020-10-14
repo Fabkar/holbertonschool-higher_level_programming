@@ -9,37 +9,6 @@ from models.rectangle import Rectangle, __doc__
 from models.square import Square, __doc__
 
 
-class TestBase(unittest.TestCase):
-    """
-    Test to Base Class
-    """
-    def test_docstring(self):
-        """ check each base class with docstrings"""
-        self.assertTrue(len(mrdoc.strip()) > 0)
-        self.assertTrue(len(Base.__doc__.strip()) > 0)
-        functions = inspect.getmembers(Base, predicate=inspect.ismethod)
-        for name, func in functions:
-            self.assertTrue(len(func.__doc__.strip()) > 0)
-        functions = inspect.getmembers(Base, predicate=inspect.isfunction)
-        for name, func in functions:
-            self.assertTrue(len(func.__doc__.strip()) > 0)
-
-    def test_baseclass(self):
-        """
-        1. Base Class
-        """
-        b = Base()
-        self.assertEqual(b.id, 8)
-        self.assertEqual(Base._Base__nb_objects, 8)
-        b2 = Base(3)
-        self.assertEqual(b2.id, 3)
-        self.assertEqual(Base._Base__nb_objects, 8)
-        b2.id = 4
-        self.assertEqual(b2.id, 4)
-        b2.id = "Test"
-        self.assertEqual(b2.id, "Test")
-
-
 class TestBase_to_json_string(unittest.TestCase):
     """Unittests for testing to_json_string method of Base class."""
     def test_to_json_string_noArg(self):
@@ -81,6 +50,37 @@ class TestBase_to_json_string(unittest.TestCase):
 
     def test_to_json_string_none(self):
         self.assertEqual("[]", Base.to_json_string(None))
+
+
+class TestBase(unittest.TestCase):
+    """
+    Test to Base Class
+    """
+    def test_docstring(self):
+        """ check each base class with docstrings"""
+        self.assertTrue(len(mrdoc.strip()) > 0)
+        self.assertTrue(len(Base.__doc__.strip()) > 0)
+        functions = inspect.getmembers(Base, predicate=inspect.ismethod)
+        for name, func in functions:
+            self.assertTrue(len(func.__doc__.strip()) > 0)
+        functions = inspect.getmembers(Base, predicate=inspect.isfunction)
+        for name, func in functions:
+            self.assertTrue(len(func.__doc__.strip()) > 0)
+
+    def test_baseclass(self):
+        """
+        1. Base Class
+        """
+        b = Base()
+        self.assertEqual(b.id, 8)
+        self.assertEqual(Base._Base__nb_objects, 8)
+        b2 = Base(3)
+        self.assertEqual(b2.id, 3)
+        self.assertEqual(Base._Base__nb_objects, 8)
+        b2.id = 4
+        self.assertEqual(b2.id, 4)
+        b2.id = "Test"
+        self.assertEqual(b2.id, "Test")
 
 
 class Base_test_class(unittest.TestCase):
