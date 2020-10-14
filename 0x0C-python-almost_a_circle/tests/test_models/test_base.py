@@ -141,13 +141,5 @@ class Base_test_class(unittest.TestCase):
     def test_list_id(self):
         self.assertEqual({'a': 1, 'b': 2}, Base({'a': 1, 'b': 2}).id)
 
-    def test_docstring(self):
-        self.assertTrue(len(Base.__doc__.strip()) > 0)
-        self.assertTrue(len(Base.to_json_string.__doc__.strip()) > 0)
-        self.assertTrue(len(Base.save_to_file.__doc__.strip()) > 0)
-        self.assertTrue(len(Base.from_json_string.__doc__.strip()) > 0)
-        self.assertTrue(len(Base.create.__doc__.strip()) > 0)
-        self.assertTrue(len(Base.load_from_file.__doc__.strip()) > 0)
-
 if __name__ == '__main__':
     unittest.main()
