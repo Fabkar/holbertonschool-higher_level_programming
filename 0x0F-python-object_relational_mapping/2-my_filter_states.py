@@ -13,4 +13,5 @@ if __name__ == "__main__":
                 FROM states \
                 WHERE name = '{}' ORDER BY states.id ASC".format(sys.argv[4]))
     for states in c.fetchall():
-        print(states)
+        if states[1] == sys.argv[4]:
+            print(states)
