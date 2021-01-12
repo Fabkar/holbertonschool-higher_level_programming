@@ -3,7 +3,6 @@
 the body of the response (decoded in utf-8)."""
 from sys import argv
 import urllib.request as request
-import urllib.response as response
 import urllib.error as error
 
 
@@ -12,5 +11,5 @@ if __name__ == "__main__":
     try:
         with request.urlopen(req) as request:
             print(request.read().decode("utf-8"))
-        except error.HTTPError as error:
-            print("Error code : {}".format(error.code))
+    except error.HTTPError as error:
+        print("Error code : {}".format(error.code))
