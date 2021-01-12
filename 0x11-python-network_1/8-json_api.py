@@ -10,7 +10,7 @@ if __name__ == "__main__":
         q = ""
     else:
         q = argv[1]
-    req = requests.post("http://52bc8ae81d52.87bf5168.hbtn-cod.io:5000/search_user", data={"q": q})
+    req = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
     try:
         req_dict_json = req.json()
         id = req_dict_json.get("id")
