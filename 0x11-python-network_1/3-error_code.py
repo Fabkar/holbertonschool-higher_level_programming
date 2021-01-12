@@ -7,9 +7,9 @@ import urllib.error as error
 
 
 if __name__ == "__main__":
-    req = request.Request(argv[1])
+    req = argv[1]
     try:
-        with request.urlopen(req) as request:
-            print(request.read().decode("utf-8"))
+        with request.urlopen(req) as response:
+            print(response.read().decode("utf-8"))
     except error.HTTPError as error:
         print("Error code : {}".format(error.code))
