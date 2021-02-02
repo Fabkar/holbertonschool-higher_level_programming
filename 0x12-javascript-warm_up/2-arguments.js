@@ -7,5 +7,5 @@ if (process.argv.length <= 2) {
 } else if (process.argv.length === 3) {
   console.log('Argument found');
 } else {
-  console.log('Argumetns found');
+  console.log('Arguments found');
 }
