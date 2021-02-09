@@ -26,8 +26,7 @@ module.exports = class Rectangle {
   }
 };
 
-const Rectangle = require('./4-rectangle');
-module.exports = class Square extends Rectangle { // class square inherits from 4-rectangle
+module.exports = class Square extends require('./4-rectangle') { // class square inherits from 4-rectangle
   constructor (size) {
     super(size, size);
   }
