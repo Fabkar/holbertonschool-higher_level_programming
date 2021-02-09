@@ -1,6 +1,5 @@
 #!/usr/bin/node
-/* class Rectangle that defines a rectangle
-  with conditional the sides if it's 0 or negative */
+/* class Rectangle that defines a rectangle */
 module.exports = class Rectangle {
   constructor (w, h) {
     if (w > 0 && h > 0) { // Conditional when the sides are greater than 0
