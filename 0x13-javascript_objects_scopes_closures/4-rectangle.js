@@ -16,8 +16,9 @@ module.exports = class Rectangle {
   }
 
   rotate () { // that exchanges the width and the height of the rectangle
+    const i = this.width;
     this.width = this.height;
-    this.height = this.width;
+    this.height = i;
   }
 
   double () { // that multiples the width and the height of the rectangle by 2.
